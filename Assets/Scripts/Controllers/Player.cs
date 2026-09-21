@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public List<Transform> asteroidTransforms;
     public float bombTrailSpacing;
     public int numberOfTrailBombs;
+    public float warpRatio;
 
     // Update is called once per frame
     void Update()
@@ -24,6 +25,10 @@ public class Player : MonoBehaviour
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
             SpawnBombOnRandomCorner(bombTrailSpacing);
+        }
+        if (Keyboard.current.wKey.wasPressedThisFrame)
+        {
+            WarpPlayer(enemyTransform, warpRatio);
         }
     }
 
@@ -61,5 +66,17 @@ public class Player : MonoBehaviour
             direction = new Vector3(-1, -1);
         }
         SpawnBombAtOffset(direction / Mathf.Sqrt(2) * inDistance);
+    }
+
+    public void WarpPlayer(Transform target, float ratio)
+    {
+        if (ratio <= 1 && ratio >= 0)
+        { 
+            Vector3 pos = transform.position;
+            Vector3 delta = target.position - pos;
+            pos += delta * ratio;
+            transform.position = pos;
+
+        }
     }
 }
