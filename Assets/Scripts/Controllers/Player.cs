@@ -21,6 +21,10 @@ public class Player : MonoBehaviour
         {
             SpawnBombTrail(bombTrailSpacing, numberOfTrailBombs);
         }
+        if (Keyboard.current.rKey.wasPressedThisFrame)
+        {
+            SpawnBombOnRandomCorner(bombTrailSpacing);
+        }
     }
 
     public void SpawnBombAtOffset(Vector3 inOffset)
@@ -34,5 +38,28 @@ public class Player : MonoBehaviour
         {
             SpawnBombAtOffset(new Vector3(0, -(i + 1) * inBombSpacing));
         }
+    }
+
+    public void SpawnBombOnRandomCorner(float inDistance)
+    {
+        Vector3 direction;
+        float r = Random.Range(0, 4);
+        if (r < 1)
+        {
+            direction = new Vector3(1, 1);
+        }
+        else if (r < 2)
+        {
+            direction = new Vector3(-1, 1);
+        }
+        else if (r < 3)
+        {
+            direction = new Vector3(1, -1);
+        }
+        else
+        {
+            direction = new Vector3(-1, -1);
+        }
+        SpawnBombAtOffset(direction / Mathf.Sqrt(2) * inDistance);
     }
 }
