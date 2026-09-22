@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public float bombTrailSpacing;
     public int numberOfTrailBombs;
     public float warpRatio;
+    public float range;
 
     // Update is called once per frame
     void Update()
@@ -30,6 +31,7 @@ public class Player : MonoBehaviour
         {
             WarpPlayer(enemyTransform, warpRatio);
         }
+        DetectAsteroids(range, asteroidTransforms);
     }
 
     public void SpawnBombAtOffset(Vector3 inOffset)
@@ -77,6 +79,21 @@ public class Player : MonoBehaviour
             pos += delta * ratio;
             transform.position = pos;
 
+        }
+    }
+
+    public void DetectAsteroids(float inMaxRange, List<Transform> inAsteroids)
+    {
+        for (int i = 0; i < inAsteroids.Count; i++)
+        {
+            Vector3 delta = inAsteroids[i].position - transform.position;
+            if (Mathf.Sqrt(delta.x * delta.x - delta.y * delta.y) <= inMaxRange)
+            {
+                delta.z = 0;
+                delta.Normalize();
+                Vector3 lineEnd = transform.position + delta * 2.5f;
+                Debug.DrawLine(transform.position, lineEnd);
+            }
         }
     }
 }
