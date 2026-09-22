@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     public int numberOfTrailBombs;
     public float warpRatio;
     public float range;
+    public Vector3 velocity;
+    public float maxSpeed;
 
     // Update is called once per frame
     void Update()
@@ -27,10 +29,27 @@ public class Player : MonoBehaviour
         {
             SpawnBombOnRandomCorner(bombTrailSpacing);
         }
-        if (Keyboard.current.wKey.wasPressedThisFrame)
+        if (Keyboard.current.qKey.wasPressedThisFrame)
         {
             WarpPlayer(enemyTransform, warpRatio);
         }
+        if (Keyboard.current.wKey.isPressed)
+        {
+            Accelerate(new Vector3(0, 0.1f, 0));
+        }
+        if (Keyboard.current.aKey.isPressed)
+        {
+            Accelerate(new Vector3(-0.1f, 0, 0));
+        }
+        if (Keyboard.current.sKey.isPressed)
+        {
+            Accelerate(new Vector3(0, -0.1f, 0));
+        }
+        if (Keyboard.current.dKey.isPressed)
+        {
+            Accelerate(new Vector3(0.1f, 0, 0));
+        }
+        Movement();
         DetectAsteroids(range, asteroidTransforms);
     }
 
@@ -87,13 +106,30 @@ public class Player : MonoBehaviour
         for (int i = 0; i < inAsteroids.Count; i++)
         {
             Vector3 delta = inAsteroids[i].position - transform.position;
-            if (Mathf.Sqrt(delta.x * delta.x - delta.y * delta.y) <= inMaxRange)
+            if (Mathf.Sqrt(delta.x * delta.x + delta.y * delta.y) <= inMaxRange)
             {
                 delta.z = 0;
                 delta.Normalize();
                 Vector3 lineEnd = transform.position + delta * 2.5f;
                 Debug.DrawLine(transform.position, lineEnd);
             }
+        }
+    }
+
+    public void Movement ()
+    {
+        Vector3 pos = transform.position;
+        pos += velocity * Time.deltaTime;
+        transform.position = pos;
+    }
+
+    public void Accelerate(Vector3 a)
+    {
+        velocity += a;
+        if (Vector3.Magnitude(velocity) > maxSpeed)
+        {
+            velocity.Normalize();
+            velocity = velocity * maxSpeed;
         }
     }
 }
