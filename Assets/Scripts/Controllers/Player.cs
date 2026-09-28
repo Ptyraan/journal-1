@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     public float range;
     public Vector3 velocity;
     public float maxSpeed;
+    public float power;
+    public float drag;
 
     // Update is called once per frame
     void Update()
@@ -36,7 +38,7 @@ public class Player : MonoBehaviour
         if (Keyboard.current.wKey.isPressed)
         {
             Accelerate(new Vector3(0, 0.1f, 0));
-        }
+        } 
         if (Keyboard.current.aKey.isPressed)
         {
             Accelerate(new Vector3(-0.1f, 0, 0));
@@ -48,6 +50,20 @@ public class Player : MonoBehaviour
         if (Keyboard.current.dKey.isPressed)
         {
             Accelerate(new Vector3(0.1f, 0, 0));
+        }
+        if (!Keyboard.current.wKey.isPressed &&
+            !Keyboard.current.aKey.isPressed &&
+            !Keyboard.current.sKey.isPressed &&
+            !Keyboard.current.dKey.isPressed)
+        {
+            if (drag * Time.deltaTime > Vector3.Magnitude(velocity)) 
+            {
+                velocity = new Vector3(0, 0, 0);
+            }
+            else
+            {
+                velocity = velocity - velocity/Vector3.Magnitude(velocity) * drag * Time.deltaTime;
+            }
         }
         Movement();
         DetectAsteroids(range, asteroidTransforms);
@@ -125,7 +141,7 @@ public class Player : MonoBehaviour
 
     public void Accelerate(Vector3 a)
     {
-        velocity += a;
+        velocity += a * power;
         if (Vector3.Magnitude(velocity) > maxSpeed)
         {
             velocity.Normalize();
