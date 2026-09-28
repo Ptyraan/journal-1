@@ -345,7 +345,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   maxFloatDistance: 2.5
   destination: {x: 0, y: 0, z: 0}
-  speed: 1
+  moveSpeed: 1
+  arrivalDistance: 0.1
 --- !u!1 &332667712 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7969683946929540427, guid: 462add3d0f7c62a4682e9c053b00ec93, type: 3}
@@ -375,7 +376,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   maxFloatDistance: 2.5
   destination: {x: 0, y: 0, z: 0}
-  speed: 1
+  moveSpeed: 1
+  arrivalDistance: 0.1
 --- !u!1 &416676925 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7969683946929540427, guid: 462add3d0f7c62a4682e9c053b00ec93, type: 3}
@@ -533,7 +535,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   maxFloatDistance: 3
   destination: {x: 0, y: 0, z: 0}
-  speed: 1
+  moveSpeed: 1
+  arrivalDistance: 0.1
 --- !u!1 &841692852 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7969683946929540427, guid: 462add3d0f7c62a4682e9c053b00ec93, type: 3}
@@ -558,7 +561,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   maxFloatDistance: 3
   destination: {x: 0, y: 0, z: 0}
-  speed: 1
+  moveSpeed: 1
+  arrivalDistance: 0.1
 --- !u!1001 &925799359
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -709,7 +713,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   maxFloatDistance: 2
   destination: {x: 0, y: 0, z: 0}
-  speed: 1
+  moveSpeed: 1
+  arrivalDistance: 0.1
 --- !u!1001 &1282445454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -793,7 +798,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   maxFloatDistance: 3
   destination: {x: 0, y: 0, z: 0}
-  speed: 1
+  moveSpeed: 1
+  arrivalDistance: 0.1
 --- !u!1 &1362329833 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7969683946929540427, guid: 462add3d0f7c62a4682e9c053b00ec93, type: 3}
@@ -813,7 +819,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   maxFloatDistance: 3
   destination: {x: 0, y: 0, z: 0}
-  speed: 1
+  moveSpeed: 1
+  arrivalDistance: 0.1
 --- !u!1 &1392577448 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7969683946929540427, guid: 462add3d0f7c62a4682e9c053b00ec93, type: 3}
@@ -1053,7 +1060,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   maxFloatDistance: 2
   destination: {x: 0, y: 0, z: 0}
-  speed: 1
+  moveSpeed: 1
+  arrivalDistance: 0.1
 --- !u!1001 &1552981066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1137,7 +1145,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   maxFloatDistance: 2
   destination: {x: 0, y: 0, z: 0}
-  speed: 1
+  moveSpeed: 1
+  arrivalDistance: 0.1
 --- !u!850595691 &1751276764
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1288,7 +1297,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   maxFloatDistance: 2.5
   destination: {x: 0, y: 0, z: 0}
-  speed: 1
+  moveSpeed: 1
+  arrivalDistance: 0.1
 --- !u!1001 &2030902519
 PrefabInstance:
   m_ObjectHideFlags: 0
