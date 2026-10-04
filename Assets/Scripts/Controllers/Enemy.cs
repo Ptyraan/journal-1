@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
     public float power;
     public Transform tgt;
     public float maxSpeed;
+    public float r;
+    public int n;
 
     private void Update()
     {
@@ -19,6 +21,17 @@ public class Enemy : MonoBehaviour
         }
         Vector3 destination = transform.position + velocity * Time.deltaTime;
         transform.position = destination;
+        EnemyRadar(r, n);
     }
 
+    public void EnemyRadar(float radius, int circlePoints)
+    {
+        Vector2 previous = new Vector2(transform.position.x, transform.position.y + radius);
+        for (float i = 1; i < circlePoints + 1; i++)
+        {
+            float angle = 2 * Mathf.PI / circlePoints * i;
+            Debug.DrawLine(previous, new Vector2(transform.position.x + radius * Mathf.Acos(angle), transform.position.y + radius * Mathf.Asin(angle)));
+            previous = new Vector2(transform.position.x + radius * Mathf.Acos(angle), transform.position.y + radius * Mathf.Asin(angle));
+        }
+    }
 }
