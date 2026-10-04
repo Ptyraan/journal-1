@@ -30,8 +30,15 @@ public class Enemy : MonoBehaviour
         for (float i = 1; i < circlePoints + 1; i++)
         {
             float angle = 2 * Mathf.PI / circlePoints * i;
-            Debug.DrawLine(previous, new Vector2(transform.position.x + radius * Mathf.Acos(angle), transform.position.y + radius * Mathf.Asin(angle)));
-            previous = new Vector2(transform.position.x + radius * Mathf.Acos(angle), transform.position.y + radius * Mathf.Asin(angle));
+            if (Vector3.Magnitude(tgt.position - transform.position) > radius)
+            {
+                Debug.DrawLine(previous, new Vector2(transform.position.x + radius * Mathf.Acos(angle), transform.position.y + radius * Mathf.Asin(angle)), new Color(0, 1, 0, 1));
+            }
+            else
+            {
+                Debug.DrawLine(previous, new Vector2(transform.position.x + radius * Mathf.Acos(angle), transform.position.y + radius * Mathf.Asin(angle)), new Color(1, 0, 0, 1));
+            }
+                previous = new Vector2(transform.position.x + radius * Mathf.Acos(angle), transform.position.y + radius * Mathf.Asin(angle));
         }
     }
 }
