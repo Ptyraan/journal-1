@@ -15,6 +15,9 @@ public class Player : MonoBehaviour
     public float maxSpeed;
     public float power;
     public float drag;
+    public float Pradius;
+    public int Pnumber;
+    public GameObject powerUp;
 
     // Update is called once per frame
     void Update()
@@ -64,6 +67,10 @@ public class Player : MonoBehaviour
             {
                 velocity = velocity - velocity/Vector3.Magnitude(velocity) * drag * Time.deltaTime;
             }
+        }
+        if (Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            SpawnPowerups(Pradius, Pnumber);
         }
         Movement();
         DetectAsteroids(range, asteroidTransforms);
@@ -146,6 +153,17 @@ public class Player : MonoBehaviour
         {
             velocity.Normalize();
             velocity = velocity * maxSpeed;
+        }
+    }
+
+    public void SpawnPowerups(float radius, int numberOfPowerups) 
+    {
+        for (int i = 0; i < numberOfPowerups; i++)
+        {
+            Vector3 n = new Vector3(Mathf.Acos(2 * Mathf.PI/numberOfPowerups * i), Mathf.Asin(2 * Mathf.PI / numberOfPowerups * i), 0);
+            n.Normalize();
+            n = n * radius;
+            Instantiate(powerUp, new Vector3(transform.position.x + n.x, transform.position.y + n.y, 0), transform.rotation);
         }
     }
 }
