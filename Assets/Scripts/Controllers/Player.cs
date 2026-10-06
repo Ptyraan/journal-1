@@ -160,7 +160,7 @@ public class Player : MonoBehaviour
     {
         for (int i = 0; i < numberOfPowerups; i++)
         {
-            Vector3 n = new Vector3(Mathf.Acos(2 * Mathf.PI/numberOfPowerups * i), Mathf.Asin(2 * Mathf.PI / numberOfPowerups * i), 0);
+            Vector3 n = new Vector3(Mathf.Cos(2 * Mathf.PI/numberOfPowerups * i), Mathf.Sin(2 * Mathf.PI / numberOfPowerups * i), 0);
             n.Normalize();
             n = n * radius;
             Instantiate(powerUp, new Vector3(transform.position.x + n.x, transform.position.y + n.y, 0), transform.rotation);

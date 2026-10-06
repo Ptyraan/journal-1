@@ -17,4 +17,9 @@ public class Moon : MonoBehaviour
     {
 
     }
+
+    public void OrbitalMotion(float radius, float speed, Transform target)
+    {
+        //float angle = Mathf.Rad2Deg(tan);
+    }
 }
