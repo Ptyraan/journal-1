@@ -24,15 +24,16 @@ public class Player : MonoBehaviour
     {
         if (Keyboard.current.bKey.wasPressedThisFrame)
         {
-            SpawnBombAtOffset(new Vector3(0, 1));
+            //SpawnBombAtOffset(new Vector3(0, 0));
+            SpawnBombWithVelocity(velocity);
         }
         if (Keyboard.current.tKey.wasPressedThisFrame)
         {
-            SpawnBombTrail(bombTrailSpacing, numberOfTrailBombs);
+            //SpawnBombTrail(bombTrailSpacing, numberOfTrailBombs);
         }
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
-            SpawnBombOnRandomCorner(bombTrailSpacing);
+            //SpawnBombOnRandomCorner(bombTrailSpacing);
         }
         if (Keyboard.current.qKey.wasPressedThisFrame)
         {
@@ -70,7 +71,7 @@ public class Player : MonoBehaviour
         }
         if (Keyboard.current.eKey.wasPressedThisFrame)
         {
-            SpawnPowerups(Pradius, Pnumber);
+            //SpawnPowerups(Pradius, Pnumber);
         }
         Movement();
         DetectAsteroids(range, asteroidTransforms);
@@ -165,5 +166,11 @@ public class Player : MonoBehaviour
             n = n * radius;
             Instantiate(powerUp, new Vector3(transform.position.x + n.x, transform.position.y + n.y, 0), transform.rotation);
         }
+    }
+
+    public void SpawnBombWithVelocity(v)
+    {
+        Bomb newBomb = Instantiate(bombPrefab, transform.position, transform.rotation);
+        newBomb.setVelocity(v);
     }
 }
