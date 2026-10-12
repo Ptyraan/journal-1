@@ -13,7 +13,7 @@ public class Bomb : MonoBehaviour
     void Update()
     {
         Vector3 pos = transform.position;
-        pos += velocity * Time.DeltaTime;
+        pos += velocity * Time.deltaTime;
         transform.position = pos;
     }
 

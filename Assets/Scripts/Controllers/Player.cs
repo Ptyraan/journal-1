@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public float Pradius;
     public int Pnumber;
     public GameObject powerUp;
+    public Transform sprite;
 
     // Update is called once per frame
     void Update()
@@ -25,7 +26,7 @@ public class Player : MonoBehaviour
         if (Keyboard.current.bKey.wasPressedThisFrame)
         {
             //SpawnBombAtOffset(new Vector3(0, 0));
-            SpawnBombWithVelocity(velocity);
+            //SpawnBombWithVelocity(velocity);
         }
         if (Keyboard.current.tKey.wasPressedThisFrame)
         {
@@ -74,6 +75,7 @@ public class Player : MonoBehaviour
             //SpawnPowerups(Pradius, Pnumber);
         }
         Movement();
+        sprite.eulerAngles = new Vector3(0, 0, -Mathf.Atan2(velocity.x, velocity.y) * Mathf.Rad2Deg);
         DetectAsteroids(range, asteroidTransforms);
     }
 
@@ -168,9 +170,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void SpawnBombWithVelocity(v)
+    public void SpawnBombWithVelocity(Vector3 v)
     {
-        Bomb newBomb = Instantiate(bombPrefab, transform.position, transform.rotation);
-        newBomb.setVelocity(v);
+        //Bomb newBomb = Instantiate(bombPrefab, transform.position, transform.rotation);
+        //newBomb.setVelocity(v);
     }
 }

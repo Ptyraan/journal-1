@@ -17,7 +17,7 @@ public class Asteroid : MonoBehaviour
     {
         if (Vector3.Magnitude(destination - transform.position) < arrivalDistance) 
         {
-            destination = new Vector3(transform.position.x + Random.Range(-1, 1) * maxFloatDistance, transform.position.y + Random.Range(-1, 1) * maxFloatDistance, 0);
+            destination = new Vector3(transform.position.x + Random.Range(-1f, 1f) * maxFloatDistance, transform.position.y + Random.Range(-1f, 1f) * maxFloatDistance, 0);
             if (Vector3.Magnitude(destination - transform.position) > maxFloatDistance)
             {
                 destination = transform.position + (destination - transform.position)/Vector3.Magnitude(destination - transform.position) * maxFloatDistance;
