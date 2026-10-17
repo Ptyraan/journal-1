@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     public Transform enemyTransform;
-    public GameObject bombPrefab;
+    public Bomb bombPrefab;
     public List<Transform> asteroidTransforms;
     public float bombTrailSpacing;
     public int numberOfTrailBombs;
@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
         if (Keyboard.current.bKey.wasPressedThisFrame)
         {
             //SpawnBombAtOffset(new Vector3(0, 0));
-            //SpawnBombWithVelocity(velocity);
+            SpawnBombWithVelocity(velocity);
         }
         if (Keyboard.current.tKey.wasPressedThisFrame)
         {
@@ -172,7 +172,7 @@ public class Player : MonoBehaviour
 
     public void SpawnBombWithVelocity(Vector3 v)
     {
-        //Bomb newBomb = Instantiate(bombPrefab, transform.position, transform.rotation);
-        //newBomb.setVelocity(v);
+        Bomb newBomb = Instantiate(bombPrefab, transform.position, transform.rotation);
+        newBomb.SetVelocity(v);
     }
 }

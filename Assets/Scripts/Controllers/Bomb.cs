@@ -3,6 +3,7 @@ using UnityEngine;
 public class Bomb : MonoBehaviour
 {
     public Vector3 velocity;
+    public Player player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

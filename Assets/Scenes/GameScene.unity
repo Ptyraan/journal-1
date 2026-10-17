@@ -630,6 +630,10 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 114516115454935764, guid: e3900e4d87ee29c43ad1d9098b51432c, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 1170141746}
+    - target: {fileID: 114516115454935764, guid: e3900e4d87ee29c43ad1d9098b51432c, type: 3}
       propertyPath: maxSpeed
       value: 6
       objectReference: {fileID: 0}
@@ -716,6 +720,11 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7969683946929540427, guid: 462add3d0f7c62a4682e9c053b00ec93, type: 3}
   m_PrefabInstance: {fileID: 1282445454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1170141746 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4023163249336194, guid: e3900e4d87ee29c43ad1d9098b51432c, type: 3}
+  m_PrefabInstance: {fileID: 925799359}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1220048545
 PrefabInstance:
@@ -1469,7 +1478,7 @@ PrefabInstance:
     - target: {fileID: 6890330259706833056, guid: abc125f00ae369940b2c5c0275186637, type: 3}
       propertyPath: bombPrefab
       value: 
-      objectReference: {fileID: 1273894435109820, guid: b262926197932c945b68169dd6fd6c5c, type: 3}
+      objectReference: {fileID: 5407389454283505404, guid: b262926197932c945b68169dd6fd6c5c, type: 3}
     - target: {fileID: 6890330259706833056, guid: abc125f00ae369940b2c5c0275186637, type: 3}
       propertyPath: enemyTransform
       value: 

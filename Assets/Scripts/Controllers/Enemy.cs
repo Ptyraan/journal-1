@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     public float maxSpeed;
     public float r;
     public int n;
+    public Transform sprite;
+
 
     private void Update()
     {
@@ -22,6 +24,8 @@ public class Enemy : MonoBehaviour
         Vector3 destination = transform.position + velocity * Time.deltaTime;
         transform.position = destination;
         EnemyRadar(r, n);
+        sprite.eulerAngles = new Vector3(0, 0, -Mathf.Atan2(velocity.x, velocity.y) * Mathf.Rad2Deg);
+
     }
 
     public void EnemyRadar(float radius, int circlePoints)
