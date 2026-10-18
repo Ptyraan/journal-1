@@ -45,6 +45,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3a7bba742911642892377dd5ad6008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bomb
+  velocity: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
+  asteroids:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  gravityThreshold: 3
+  gravity: 0.025
 --- !u!1 &1369739229142278
 GameObject:
   m_ObjectHideFlags: 0

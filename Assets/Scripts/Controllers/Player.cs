@@ -177,6 +177,7 @@ public class Player : MonoBehaviour
     {
         Bomb newBomb = Instantiate(bombPrefab, transform.position, transform.rotation);
         newBomb.SetVelocity(v);
+        newBomb.recordList(asteroidTransforms);
     }
 
     public void Fall()
