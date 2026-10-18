@@ -350,7 +350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   maxFloatDistance: 2.5
   destination: {x: 0, y: 0, z: 0}
-  moveSpeed: 1
+  moveSpeed: 0.3
   arrivalDistance: 0.1
 --- !u!1 &332667712 stripped
 GameObject:
@@ -381,7 +381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   maxFloatDistance: 2.5
   destination: {x: 0, y: 0, z: 0}
-  moveSpeed: 1
+  moveSpeed: 0.3
   arrivalDistance: 0.1
 --- !u!1 &416676925 stripped
 GameObject:
@@ -545,7 +545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   maxFloatDistance: 3
   destination: {x: 0, y: 0, z: 0}
-  moveSpeed: 1
+  moveSpeed: 0.3
   arrivalDistance: 0.1
 --- !u!1 &841692852 stripped
 GameObject:
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   maxFloatDistance: 3
   destination: {x: 0, y: 0, z: 0}
-  moveSpeed: 1
+  moveSpeed: 0.3
   arrivalDistance: 0.1
 --- !u!1001 &925799359
 PrefabInstance:
@@ -653,6 +653,10 @@ PrefabInstance:
     - target: {fileID: 2301990505270886567, guid: c3b47d100d80f96419fd12c13303c43e, type: 3}
       propertyPath: m_Name
       value: Orbital System
+      objectReference: {fileID: 0}
+    - target: {fileID: 2301990505270886567, guid: c3b47d100d80f96419fd12c13303c43e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3695347650650143362, guid: c3b47d100d80f96419fd12c13303c43e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -809,7 +813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   maxFloatDistance: 2
   destination: {x: 0, y: 0, z: 0}
-  moveSpeed: 1
+  moveSpeed: 0.3
   arrivalDistance: 0.1
 --- !u!1001 &1282445454
 PrefabInstance:
@@ -894,7 +898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   maxFloatDistance: 3
   destination: {x: 0, y: 0, z: 0}
-  moveSpeed: 1
+  moveSpeed: 0.3
   arrivalDistance: 0.1
 --- !u!1 &1362329833 stripped
 GameObject:
@@ -915,7 +919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   maxFloatDistance: 3
   destination: {x: 0, y: 0, z: 0}
-  moveSpeed: 1
+  moveSpeed: 0.3
   arrivalDistance: 0.1
 --- !u!1 &1392577448 stripped
 GameObject:
@@ -1156,7 +1160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   maxFloatDistance: 2
   destination: {x: 0, y: 0, z: 0}
-  moveSpeed: 1
+  moveSpeed: 0.3
   arrivalDistance: 0.1
 --- !u!1001 &1552981066
 PrefabInstance:
@@ -1241,7 +1245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   maxFloatDistance: 2
   destination: {x: 0, y: 0, z: 0}
-  moveSpeed: 1
+  moveSpeed: 0.3
   arrivalDistance: 0.1
 --- !u!850595691 &1751276764
 LightingSettings:
@@ -1393,7 +1397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   maxFloatDistance: 2.5
   destination: {x: 0, y: 0, z: 0}
-  moveSpeed: 1
+  moveSpeed: 0.3
   arrivalDistance: 0.1
 --- !u!1001 &2030902519
 PrefabInstance:
@@ -1460,6 +1464,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6890330259706833056, guid: abc125f00ae369940b2c5c0275186637, type: 3}
+      propertyPath: gravity
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890330259706833056, guid: abc125f00ae369940b2c5c0275186637, type: 3}
       propertyPath: powerUp
       value: 
       objectReference: {fileID: 1273894435109820, guid: b262926197932c945b68169dd6fd6c5c, type: 3}
@@ -1486,6 +1494,10 @@ PrefabInstance:
     - target: {fileID: 6890330259706833056, guid: abc125f00ae369940b2c5c0275186637, type: 3}
       propertyPath: bombTrailSpacing
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890330259706833056, guid: abc125f00ae369940b2c5c0275186637, type: 3}
+      propertyPath: gravityThreshold
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6890330259706833056, guid: abc125f00ae369940b2c5c0275186637, type: 3}
       propertyPath: numberOfTrailBombs

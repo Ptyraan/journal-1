@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     public GameObject powerUp;
     public Transform sprite;
 
+    public float gravityThreshold;
+    public float gravity;
     // Update is called once per frame
     void Update()
     {
@@ -74,6 +76,7 @@ public class Player : MonoBehaviour
         {
             //SpawnPowerups(Pradius, Pnumber);
         }
+        Fall();
         Movement();
         sprite.eulerAngles = new Vector3(0, 0, -Mathf.Atan2(velocity.x, velocity.y) * Mathf.Rad2Deg);
         DetectAsteroids(range, asteroidTransforms);
@@ -174,5 +177,17 @@ public class Player : MonoBehaviour
     {
         Bomb newBomb = Instantiate(bombPrefab, transform.position, transform.rotation);
         newBomb.SetVelocity(v);
+    }
+
+    public void Fall()
+    {
+        for (int i = 0; i < asteroidTransforms.Count; i++)
+        {
+            Vector3 delta = asteroidTransforms[i].position - transform.position;
+            if (Vector3.Magnitude(delta) < gravityThreshold)
+            {
+                velocity += delta * (Vector3.Magnitude(delta) / gravityThreshold) * gravity;
+            }
+        }
     }
 }
