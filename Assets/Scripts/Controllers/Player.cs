@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
 
     public float gravityThreshold;
     public float gravity;
+
+    public bool turnMode;
+    public float AOA;
     // Update is called once per frame
     void Update()
     {
@@ -40,23 +43,51 @@ public class Player : MonoBehaviour
         }
         if (Keyboard.current.qKey.wasPressedThisFrame)
         {
-            WarpPlayer(enemyTransform, warpRatio);
+            //WarpPlayer(enemyTransform, warpRatio);
         }
         if (Keyboard.current.wKey.isPressed)
         {
-            Accelerate(new Vector3(0, 0.1f, 0));
+            if (!turnMode)
+            {
+                Accelerate(new Vector3(0, 0.1f, 0));
+            }
+            else
+            {
+                Accelerate(new Vector3(0.1f * Mathf.Cos((AOA + 90) * Mathf.Deg2Rad), 0.1f * Mathf.Sin((AOA + 90) * Mathf.Deg2Rad), 0));
+            }
         } 
         if (Keyboard.current.aKey.isPressed)
         {
-            Accelerate(new Vector3(-0.1f, 0, 0));
+            if (!turnMode)
+            {
+                Accelerate(new Vector3(-0.1f, 0, 0));
+            }
+            else
+            {
+                AOA += 100 * Time.deltaTime;
+            }
         }
         if (Keyboard.current.sKey.isPressed)
         {
-            Accelerate(new Vector3(0, -0.1f, 0));
+            if(!turnMode)
+            {
+                Accelerate(new Vector3(0, -0.1f, 0));
+            }
+            else
+            {
+                Accelerate(new Vector3(-0.1f * Mathf.Cos((AOA + 90) * Mathf.Deg2Rad), -0.1f * Mathf.Sin((AOA + 90) * Mathf.Deg2Rad), 0));
+            }
         }
         if (Keyboard.current.dKey.isPressed)
         {
-            Accelerate(new Vector3(0.1f, 0, 0));
+            if(!turnMode)
+            {
+                Accelerate(new Vector3(0.1f, 0, 0));
+            }
+            else
+            {
+                AOA -= 100 * Time.deltaTime;
+            }
         }
         if (!Keyboard.current.wKey.isPressed &&
             !Keyboard.current.aKey.isPressed &&
@@ -75,10 +106,18 @@ public class Player : MonoBehaviour
         if (Keyboard.current.eKey.wasPressedThisFrame)
         {
             //SpawnPowerups(Pradius, Pnumber);
+            turnMode = !turnMode;
         }
         Fall();
         Movement();
-        sprite.eulerAngles = new Vector3(0, 0, -Mathf.Atan2(velocity.x, velocity.y) * Mathf.Rad2Deg);
+        if (!turnMode)
+        {
+            sprite.eulerAngles = new Vector3(0, 0, -Mathf.Atan2(velocity.x, velocity.y) * Mathf.Rad2Deg);
+        }
+        else 
+        {
+            sprite.eulerAngles = new Vector3(0, 0, AOA);
+        }
         DetectAsteroids(range, asteroidTransforms);
     }
 
