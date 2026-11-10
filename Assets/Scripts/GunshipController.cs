@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using System.Collections.Generic;
+
 
 public class GunshipController : MonoBehaviour
 {
@@ -15,6 +18,14 @@ public class GunshipController : MonoBehaviour
         Vector3 leftDirection = AimCannon(mousePosition, leftCannon);
         Vector3 rightDirection = AimCannon(mousePosition, rightCannon);
 
+        if (Mouse.current.leftButton.wasPressedThisFrame) {
+            FireCannonball(leftDirection, leftCannon);
+        }
+        if (Mouse.current.rightButton.wasPressedThisFrame)
+        {
+            FireCannonball(rightDirection, rightCannon);
+        }
+
     }
 
     private Vector3 AimCannon(Vector3 target, Transform cannon)
@@ -30,6 +41,6 @@ public class GunshipController : MonoBehaviour
 
     private void FireCannonball(Vector3 direction, Transform cannon)
     {
-        
+        Instantiate(cannonballPrefab, cannon.position, cannon.rotation);
     }
 }

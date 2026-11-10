@@ -3,7 +3,10 @@ guid: 105458dd57000e14b9d26064890c7bf7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - leftCannon: {fileID: 933814505114318518, guid: 44074452453c295498f805cf7a408f27, type: 3}
+  - rightCannon: {instanceID: 0}
+  - cannonballPrefab: {fileID: 8214065686384112071, guid: 44074452453c295498f805cf7a408f27, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
